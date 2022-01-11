@@ -1,6 +1,13 @@
 https://gallery-shop-tnadezda.herokuapp.com/
 
 
+For testing:
+    "john@beatles.uk": "lennonj!",
+    "paul@beatles.uk": "mccartney"
+
+
+
+
 Specification 
 
 Using MongoDB Collection
