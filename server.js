@@ -66,7 +66,7 @@ let galleryProj = mongoose.model("gallery", gallerySchema)
 let galleryObj = JSON.parse(fs.readFileSync("./gallery.json"))
 
 
-/* for creating a db
+//for creating a db
 let len = galleryObj.length;
 
 console.log(`Number of elements in galleryObj array = ${len}`);
@@ -87,7 +87,7 @@ for (var i = 0; i < len; i++) {
         }
     });
 }
-*/
+
 
 let name = "";
 
