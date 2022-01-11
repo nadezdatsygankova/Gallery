@@ -7,10 +7,7 @@ Using MongoDB Collection
 
 Gallery Collection
 FILENAME	DESCRIPTION	PRICE	STATUS
-abcd.jpg	Whatever that is appropriate	2000	A
-efgh.jpg	Whatever that is appropriate	2500	A
-ijkl.jpg	Whatever that is appropriate	3200	A
-mnop.jpg	Whatever that is appropriate	6700	A
+
 
 Creating New Order and Purchase Webpage
 
