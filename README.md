@@ -35,9 +35,8 @@ Modifying Existing Gallery Webpage
 •	Only the images that are unsold (available) can be displayed for selection
 •	The image selection is to be presented via a dropdown list
 •	Click on a shown image, excluding the default image, invokes the download and display of the new Order and Purchase webpage
-•	All image-related data are now in the new MongoDB collection and no longer retrieved from your imagelist.txt file: you are to modify this webpage to utilize the new collection
-•	All other functionalities on this page should remain unaffected
-Modify Existing Login Web Page
+•	All image-related data are now in the new MongoDB collection 
+Login Web Page
 
 •	When one first log on to your webpage, be sure to have the status values of all documents initialized to “A” (available)
 •	All other functionalities on this page should remain unaffected
