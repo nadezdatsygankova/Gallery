@@ -86,7 +86,7 @@ input,
 
 .btn {
   display: inline-block;
-  padding: 1em 1.5em;
+  padding: 1.5em 1.5em;
   font-size: 0.625rem;
   text-transform: uppercase;
   font-weight: 900;
@@ -140,8 +140,8 @@ input,
   flex-direction: column;
   font-family: inherit;
   text-align: inherit;
-  margin-bottom: 0.75em;
-  padding: 0.25em;
+  margin-bottom: 1em;
+  padding: 0.75em;
   border: 1px solid #404040;
   transform: scale(1);
   transition: transform 250ms;
@@ -237,6 +237,7 @@ img {
   border: 3px solid #404040;
   border-radius: 5px;
   width: 70%;
+  padding: .5em;
 }
 
 .logout {
@@ -259,7 +260,7 @@ a,
 #username {
   position: absolute;
   right: 20%;
-  top: 20%;
+  top: 15%;
   left: 20%;
   border: 1px solid #3d3335;
   background-color: #bdb6b8;
@@ -272,7 +273,7 @@ a,
   font-weight: 800;
   position: absolute;
   right: 40%;
-  top: 20%;
+  top: 15%;
   left: 40%;
   opacity: 0;
   border: 1px solid #3d3335;
@@ -295,6 +296,7 @@ a,
 
 .footer {
   margin-top: 10em;
+  color: #000;
 }
 
 @media (min-width: 600px) {
@@ -321,7 +323,7 @@ a,
 
   input,
   .btn {
-    max-width: 200px;
+    max-width: 300px;
   }
   #home {
     margin-bottom: 5em;
