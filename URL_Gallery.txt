@@ -1,5 +1,5 @@
 URL Gallery 3
 Nadezda Tsygankova
-//change it
+
 
 https://gallery-shop-tnadezda.herokuapp.com/
