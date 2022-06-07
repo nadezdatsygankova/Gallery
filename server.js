@@ -82,7 +82,7 @@ let galleryProj = mongoose.model("gallery", gallerySchema)
 //             throw err;
 //         }
 //         else {
-//             // console.log("Reload Complete");
+//             console.log("Reload Complete");
 //         }
 //     });
 // }
@@ -203,15 +203,12 @@ app.post('/gallery', (req, res) => {
 });
 
 app.get('/gallery', (req, res) => {
-    // console.log("Cookies from client in gallery:", req.MySession);
-    // console.log(Arr.email);
     res.locals = { data: Arr };
     if (req.MySession.user != Arr.email) {
         req.MySession.reset();
         res.redirect('/');
     }
     else {
-        // console.log(req.MySession.user);
         res.render('viewData');
     }
 });
@@ -250,7 +247,6 @@ app.get('/purchaseC', (req, res) => {
         if (err) {
             throw err;
         } else {
-            // console.log("with updated");
             res.redirect('/galleryC');
         }
 
@@ -265,8 +261,6 @@ app.get('/purchase', (req, res) => {
         res.redirect('/gallery');
     }
     else {
-        // console.log(Arr.name.length);
-        // console.log(Arr.current);
         let findindex;
         for (let index = 0; index < Arr.name.length; index++) {
             if (Arr.name[index] === Arr.current) {
@@ -275,9 +269,6 @@ app.get('/purchase', (req, res) => {
         }
         Arr.descriptionCurrent = Arr.description[findindex];
         Arr.priceCurrent = Arr.price[findindex];
-        // console.log(Arr.descriptionCurrent);
-        // console.log("current");
-        // console.log(Arr.current);
         res.locals = { data: Arr };
         res.render('purchase');
     }
