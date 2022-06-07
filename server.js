@@ -23,8 +23,8 @@ app.engine("hbs", exphbs({
 }));
 let rawData = fs.readFileSync("./user.json");
 
-
-let user = JSON.parse(rawData); // red a file and created a object
+// red a file and created a object
+let user = JSON.parse(rawData);
 
 
 
@@ -63,30 +63,30 @@ let gallerySchema = new Schema({
 
 gallerySchema.set("collection", "gallery");
 let galleryProj = mongoose.model("gallery", gallerySchema)
-let galleryObj = JSON.parse(fs.readFileSync("./gallery.json"))
-
+// let galleryObj = JSON.parse(fs.readFileSync("./gallery.json"))
 
 //for creating a db
-let len = galleryObj.length;
+// let len = galleryObj.length;
 
-console.log(`Number of elements in galleryObj array = ${len}`);
+// console.log(`Number of elements in galleryObj array = ${len}`);
 
-for (var i = 0; i < len; i++) {
+// for (var i = 0; i < len; i++) {
 
-    galleryProj.create({
-        "filename": galleryObj[i].filename,
-        "description": galleryObj[i].description,
-        "price": galleryObj[i].price,
-        "status": galleryObj[i].status
-    }, function (err, data) {
-        if (err) {
-            throw err;
-        }
-        else {
-            console.log("Reload Complete");
-        }
-    });
-}
+//     galleryProj.create({
+//         "filename": galleryObj[i].filename,
+//         "description": galleryObj[i].description,
+//         "price": galleryObj[i].price,
+//         "status": galleryObj[i].status
+//     }, function (err, data) {
+//         if (err) {
+//             throw err;
+//         }
+//         else {
+//             // console.log("Reload Complete");
+//         }
+//     });
+// }
+
 
 
 let name = "";
@@ -105,35 +105,26 @@ app.use(session({
 
 
 app.get('/', (req, res) => {
-    console.log(name);
     res.locals = { data: name };
     res.render('password');
-
 });
 
 app.post('/', (req, res) => {
     name = "";
     let username = req.body.userName;
-    console.log(`Username is ${username}`);
     let password = req.body.password;
-    console.log(`Password is ${password}`);
     if (username in user) {
-        console.log('true username');
         if (password === user[username]) {
-            console.log('true login');
-
             Arr.email = username;
             req.MySession.user = Arr.email;
             res.redirect('/galleryC');
         }
         else {
-            console.log('false password');
             name = "Invalid password";
             res.redirect('/');
         }
     }
     else {
-        console.log('false username');
         name = "Not a registered username";
         res.redirect('/');
     }
@@ -143,11 +134,8 @@ app.post('/', (req, res) => {
 app.post('/registration', (req, res) => {
 
     let usernameReg = req.body.acuserName;
-    console.log(`UsernameRegistration is ${usernameReg}`);
     let passwordReg = req.body.acpassword;
-    console.log(`Password is ${passwordReg}`);
     let passwordRegCon = req.body.confirmPassword;
-    console.log(`Password is ${passwordRegCon}`);
 
     if (usernameReg in user) {
         name = "User exists";
@@ -188,12 +176,12 @@ app.use("/purchase", pur);
 // });
 
 app.get('/reset', function (req, res) {
+    console.log("reset")
     galleryProj.updateMany({}, { "status": "A" }, { multi: true }, (err, result) => {
 
         if (err) {
             throw err;
         } else {
-            console.log(" updated all");
             res.redirect('/');
         }
     });
@@ -202,8 +190,6 @@ app.get('/reset', function (req, res) {
 
 app.post('/gallery', (req, res) => {
     let body = req.body.selection;
-    console.log(body);
-    console.log(`Answer is ${body}`);
     if (body === "Nature.jpg") {
         Arr.current = "Nature.jpg";
         res.redirect('/gallery');
@@ -217,27 +203,25 @@ app.post('/gallery', (req, res) => {
 });
 
 app.get('/gallery', (req, res) => {
-    console.log("Cookies from client in gallery:", req.MySession);
-    console.log(Arr.email);
+    // console.log("Cookies from client in gallery:", req.MySession);
+    // console.log(Arr.email);
     res.locals = { data: Arr };
     if (req.MySession.user != Arr.email) {
         req.MySession.reset();
         res.redirect('/');
     }
     else {
-        console.log(req.MySession.user);
+        // console.log(req.MySession.user);
         res.render('viewData');
     }
 });
 
 
 app.get('/galleryC', (req, res) => {
-
+  console.log('i am in galleryC')
     galleryProj.find({ status: "A" }, (err, result) => {
         if (err) throw err;
         else {
-            console.log("Find all students with A reload.before gallery..");
-            //   console.log(result);
             Arr.current = "Nature.jpg";
             Arr.name = [],
                 Arr.description = [];
@@ -250,7 +234,6 @@ app.get('/galleryC', (req, res) => {
                 Arr.price.push(result[index].price);
                 Arr.status.push(result[index].status);
             }
-            console.log("Save arr");
             res.redirect('/gallery');
         }
 
@@ -267,7 +250,7 @@ app.get('/purchaseC', (req, res) => {
         if (err) {
             throw err;
         } else {
-            console.log("with updated");
+            // console.log("with updated");
             res.redirect('/galleryC');
         }
 
@@ -282,8 +265,8 @@ app.get('/purchase', (req, res) => {
         res.redirect('/gallery');
     }
     else {
-        console.log(Arr.name.length);
-        console.log(Arr.current);
+        // console.log(Arr.name.length);
+        // console.log(Arr.current);
         let findindex;
         for (let index = 0; index < Arr.name.length; index++) {
             if (Arr.name[index] === Arr.current) {
@@ -292,9 +275,9 @@ app.get('/purchase', (req, res) => {
         }
         Arr.descriptionCurrent = Arr.description[findindex];
         Arr.priceCurrent = Arr.price[findindex];
-        console.log(Arr.descriptionCurrent);
-        console.log("current");
-        console.log(Arr.current);
+        // console.log(Arr.descriptionCurrent);
+        // console.log("current");
+        // console.log(Arr.current);
         res.locals = { data: Arr };
         res.render('purchase');
     }

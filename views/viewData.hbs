@@ -11,23 +11,23 @@
 
     <form method="POST" action="/gallery">
         {{>header}}
-        <div class="container">
-        <div class="flex-gallery">
-<aside class="radioB item">
-            <select name="selection" id="select">
+        <div class="container container-gallery">
+          <div class="flex-gallery">
+            <aside class="radioB item">
+              <select name="selection" id="select">
                 <option value="Nature.jpg"></option>
                 {{#each data.name}}
                 <option value={{this}}>{{this}}</option>
                 {{/each}}
-            </select>
-            <button class="btn btn-primary" type="submit" value="submit">Submit</button>
-        </aside>
-       <div class="item descriptionImages">
-        <section class="boxImg ">
+              </select>
+              <button class="btn btn-primary" type="submit" value="submit">Submit</button>
+            </aside>
+         <div class="item descriptionImages">
+           <section class="boxImg ">
             {{#if data.current }}
-            <a class="purchaseImg" href="purchase"><img src="/images/{{data.current}}" alt=" NO IMAGE" class="image"></a>
+              <a class="purchaseImg" href="purchase"><img src="/images/{{data.current}}" alt=" NO IMAGE" class="image"></a>
             {{else}}
-            <img src="/images/Nature.jpg" alt=" NO IMAGE" class="image">
+              <img src="/images/Nature.jpg" alt=" NO IMAGE" class="image">
             {{/if}}
         </section>
         <div class="description item">
@@ -44,8 +44,8 @@
             <a id="logoutPlace" href="/logout">Logout</a>
         </div>
         <div class="description-move">
-        <h5>Please choose one of picture that you want to see! </h5>
-        <p>You can click on picture to see it's current cost</p>
+        <h5>Please choose one of the pictures that you want to see!</h5>
+        <p>You can click on the picture to see its current cost and buy it </p>
         </div>
 
 
