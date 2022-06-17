@@ -228,9 +228,9 @@ a,
 
 #username {
   position: absolute;
-  right: 20%;
+  right: 40%;
   top: 15%;
-  left: 20%;
+  left: 40%;
   border: 1px solid #3d3335;
   background-color: #bdb6b8;
   padding: 0.2em 0.5em;
@@ -264,8 +264,9 @@ a,
 }
 
 .footer {
-  margin-top: 10em;
+  /* margin-top: 10em; */
   color: #000;
+  background-color: #bdb6b8;
 }
 
 @media (min-width: 600px) {
